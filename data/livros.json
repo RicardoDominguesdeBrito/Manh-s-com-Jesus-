@@ -1,0 +1,13 @@
+{
+  "versao": 1,
+  "livros": [
+    {
+      "id": "0001",
+      "status": "em circulação",
+      "leitoresRegistrados": 0,
+      "valorDoacoesRegistrado": 0,
+      "cidades": [],
+      "historico": []
+    }
+  ]
+}
