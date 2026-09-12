@@ -6,7 +6,6 @@
   "required": [
     "id",
     "status",
-    "leitoresRegistrados",
     "cidades",
     "historico"
   ],
@@ -19,10 +18,6 @@
     "status": {
       "type": "string",
       "description": "Estado atual do exemplar, por exemplo: em circulação."
-    },
-    "leitoresRegistrados": {
-      "type": "integer",
-      "minimum": 0
     },
     "cidades": {
       "type": "array",
