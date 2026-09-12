@@ -5,7 +5,6 @@ async function carregarLivro() {
   const titulo = document.getElementById('exemplar-titulo');
   const status = document.getElementById('status-livro');
   const leitores = document.getElementById('leitores-livro');
-  const doacoes = document.getElementById('doacoes-livro');
   const cidades = document.getElementById('cidades-livro');
   const historicoLista = document.getElementById('historico-livro');
   const historicoVazio = document.getElementById('trajetoria-vazia');
@@ -36,7 +35,6 @@ async function carregarLivro() {
     titulo.textContent = `Exemplar nº ${livro.id}`;
     status.textContent = livro.status;
     leitores.textContent = String(livro.leitoresRegistrados);
-    doacoes.textContent = formatarValor(livro.valorDoacoesRegistrado);
 
     if (Array.isArray(livro.cidades) && livro.cidades.length > 0) {
       cidades.textContent = livro.cidades.join(' • ');
@@ -55,14 +53,6 @@ async function carregarLivro() {
     erro.hidden = false;
     erro.textContent = falha.message || 'Ocorreu um erro ao carregar este exemplar.';
   }
-}
-
-function formatarValor(valor) {
-  const numero = Number(valor || 0);
-  return numero.toLocaleString('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  });
 }
 
 carregarLivro();
