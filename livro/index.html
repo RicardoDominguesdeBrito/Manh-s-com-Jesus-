@@ -3,20 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Página de um exemplar do projeto Livro Solidário.">
-  <title>Livro Solidário — Exemplar</title>
+  <meta name="theme-color" content="#0b0d12">
+  <meta name="description" content="Acompanhe a jornada de um exemplar de Manhãs com Jesus na Corrente do Bem.">
+  <title>Manhãs com Jesus — Exemplar</title>
   <link rel="stylesheet" href="../assets/css/base.css">
 </head>
-<body>
+<body class="exemplar-body">
+  <header class="exemplar-top">
+    <a class="back-link" href="../">← Manhãs com Jesus</a>
+    <span class="eyebrow" style="margin:0">Corrente do Bem</span>
+  </header>
+
   <main class="page-shell" id="pagina-livro" aria-live="polite">
-    <section class="hero card">
-      <p class="eyebrow">Livro Solidário</p>
-      <h1>Você encontrou um livro solidário.</h1>
+    <section class="exemplar-hero">
+      <p class="eyebrow">Este livro está em circulação</p>
+      <h1>Você encontrou um livro que continua viajando.</h1>
       <p class="lead" id="exemplar-titulo">Carregando exemplar...</p>
       <p>Leia. Faça parte da corrente. Depois passe este livro adiante.</p>
     </section>
 
-    <section class="card status-grid" aria-label="Informações do exemplar">
+    <section class="status-grid" aria-label="Informações do exemplar">
       <div>
         <span class="label">Status</span>
         <strong id="status-livro">—</strong>
@@ -32,28 +38,33 @@
     </section>
 
     <section class="card">
+      <p class="eyebrow">A jornada</p>
       <h2>A história deste exemplar</h2>
       <p id="trajetoria-vazia">A trajetória deste livro começará a ser construída quando o sistema de registro estiver disponível.</p>
       <ul id="historico-livro" class="timeline" hidden></ul>
     </section>
 
     <section class="card">
-      <h2>Cidades por onde passou</h2>
+      <p class="eyebrow">Por onde passou</p>
+      <h2>Cidades na caminhada</h2>
       <p id="cidades-livro">Nenhuma cidade registrada ainda.</p>
-      <p class="note">No futuro, a cidade poderá ser informada voluntariamente pelo leitor. Não haverá geolocalização automática.</p>
+      <p class="note">Quando o registro estiver ativo, a cidade poderá ser informada voluntariamente pelo leitor. Não haverá geolocalização automática.</p>
     </section>
 
     <section class="card">
+      <p class="eyebrow">Solidariedade</p>
       <h2>Faça parte da corrente</h2>
+      <p>A proposta desta edição em circulação é unir leitura e solidariedade. Os recursos de contribuição e registro serão ativados na próxima etapa do projeto.</p>
       <div class="actions">
-        <button class="button" type="button" disabled>Quero contribuir — em breve</button>
+        <button class="button button-dark" type="button" disabled>Quero contribuir — em breve</button>
         <button class="button button-secondary" type="button" disabled>Recebi este livro — em breve</button>
       </div>
     </section>
 
     <section class="card">
+      <p class="eyebrow">O próximo capítulo</p>
       <h2>Passe este livro adiante</h2>
-      <p>Depois da leitura, entregue este exemplar a outra pessoa. O mesmo NFC continuará acompanhando a jornada do livro.</p>
+      <p>Depois da leitura, entregue este exemplar a alguém que possa se beneficiar dessa mensagem. O mesmo NFC permanece com o livro e acompanha a próxima etapa da jornada.</p>
     </section>
 
     <p class="error-message" id="erro-livro" role="alert" hidden></p>
