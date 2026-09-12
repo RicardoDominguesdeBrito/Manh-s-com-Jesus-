@@ -7,9 +7,11 @@ async function carregarLivro() {
   const erro = document.getElementById('erro-livro');
 
   if (!id) {
-    titulo.textContent = 'Exemplar não informado';
-    erro.hidden = false;
-    erro.textContent = 'Use uma URL com o identificador do livro, por exemplo: ?id=0001';
+    if (titulo) titulo.textContent = 'Exemplar não informado';
+    if (erro) {
+      erro.hidden = false;
+      erro.textContent = 'Use uma URL com o identificador do livro, por exemplo: ?id=0001';
+    }
     return;
   }
 
@@ -18,26 +20,33 @@ async function carregarLivro() {
     if (!resposta.ok) throw new Error('Não foi possível carregar os dados dos exemplares.');
 
     const dados = await resposta.json();
-    const livro = dados.livros.find((item) => item.id === id);
+    const livro = Array.isArray(dados.livros)
+      ? dados.livros.find((item) => item.id === id)
+      : null;
 
     if (!livro) {
-      titulo.textContent = `Exemplar nº ${id}`;
-      erro.hidden = false;
-      erro.textContent = 'Este exemplar ainda não está cadastrado.';
+      if (titulo) titulo.textContent = `Exemplar nº ${id}`;
+      if (erro) {
+        erro.hidden = false;
+        erro.textContent = 'Este exemplar ainda não está cadastrado.';
+      }
       return;
     }
 
     document.title = `Manhãs com Jesus — Exemplar ${livro.id}`;
-    titulo.textContent = `Exemplar nº ${livro.id}`;
+    if (titulo) titulo.textContent = `Exemplar nº ${livro.id}`;
 
-    registrarPassagem(livro.id, modoAdmin);
+    // Registra a passagem em segundo plano. O número não é exibido ao visitante.
+    registrarPassagemEmSegundoPlano(livro.id, modoAdmin);
   } catch (falha) {
-    erro.hidden = false;
-    erro.textContent = falha.message || 'Ocorreu um erro ao carregar este exemplar.';
+    if (erro) {
+      erro.hidden = false;
+      erro.textContent = falha.message || 'Ocorreu um erro ao carregar este exemplar.';
+    }
   }
 }
 
-async function registrarPassagem(id, modoAdmin) {
+async function registrarPassagemEmSegundoPlano(id, modoAdmin) {
   try {
     if (!window.ContadorManhasComJesus) return;
 
@@ -45,7 +54,8 @@ async function registrarPassagem(id, modoAdmin) {
       somenteLeitura: modoAdmin
     });
   } catch (falha) {
-    // A experiência pública do livro não depende do serviço de contagem.
+    // A contagem é administrativa e não deve interromper nem exibir erro ao visitante.
+    console.warn('Não foi possível registrar a passagem deste exemplar.', falha);
   }
 }
 
