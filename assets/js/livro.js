@@ -32,7 +32,7 @@ async function carregarLivro() {
       return;
     }
 
-    document.title = `Livro Solidário — Exemplar ${livro.id}`;
+    document.title = `Manhãs com Jesus — Exemplar ${livro.id}`;
     titulo.textContent = `Exemplar nº ${livro.id}`;
     status.textContent = livro.status;
     leitores.textContent = String(livro.leitoresRegistrados);
