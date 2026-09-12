@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a0d12">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Controle de acessos — Manhãs com Jesus</title>
+  <link rel="stylesheet" href="../assets/css/controle.css">
+</head>
+<body class="controle-body">
+  <main class="controle-shell">
+    <header class="controle-top">
+      <div>
+        <p class="controle-kicker">Acompanhamento</p>
+        <h1>Passagens registradas pelos exemplares.</h1>
+      </div>
+      <a href="../">← Voltar ao site</a>
+    </header>
+
+    <p class="controle-intro">Este painel consulta apenas contagens anônimas. Cada navegador é contado uma vez por exemplar. Não são registrados nome, telefone, valor de contribuição ou localização.</p>
+
+    <section class="controle-resumo" aria-label="Resumo">
+      <article>
+        <span class="controle-label">Exemplares cadastrados</span>
+        <strong id="total-exemplares">—</strong>
+      </article>
+      <article>
+        <span class="controle-label">Passagens registradas</span>
+        <strong id="total-passagens">—</strong>
+      </article>
+    </section>
+
+    <section id="lista-exemplares" class="controle-lista" aria-live="polite"></section>
+    <p class="controle-nota">A contagem é uma estimativa: a mesma pessoa pode ser contada novamente se usar outro aparelho, navegador anônimo ou apagar os dados do navegador. Seus testes podem ser feitos abrindo a página do exemplar com <strong>&amp;admin=1</strong>, sem aumentar a contagem.</p>
+    <p id="controle-erro" class="controle-erro" role="alert" hidden></p>
+  </main>
+
+  <script src="../assets/js/contador.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', async () => {
+      const lista = document.getElementById('lista-exemplares');
+      const totalExemplares = document.getElementById('total-exemplares');
+      const totalPassagens = document.getElementById('total-passagens');
+      const erro = document.getElementById('controle-erro');
+
+      try {
+        const resposta = await fetch('../data/livros.json', { cache: 'no-store' });
+        if (!resposta.ok) throw new Error('Não foi possível carregar os exemplares.');
+        const dados = await resposta.json();
+        const livros = Array.isArray(dados.livros) ? dados.livros : [];
+
+        totalExemplares.textContent = String(livros.length);
+        let soma = 0;
+
+        for (const livro of livros) {
+          let total = 0;
+          try {
+            total = await window.ContadorManhasComJesus.obterTotal(livro.id);
+          } catch (falha) {
+            total = 0;
+          }
+
+          soma += total;
+
+          const item = document.createElement('article');
+          item.className = 'controle-item';
+          item.innerHTML = `
+            <div>
+              <h2>Exemplar nº ${livro.id}</h2>
+              <p>${livro.status || 'em circulação'} · <a href="../livro/?id=${encodeURIComponent(livro.id)}&admin=1">abrir sem contar</a></p>
+            </div>
+            <div class="controle-contagem">
+              <strong>${total}</strong>
+              <span>acessos únicos estimados</span>
+            </div>`;
+          lista.appendChild(item);
+        }
+
+        totalPassagens.textContent = String(soma);
+      } catch (falha) {
+        erro.hidden = false;
+        erro.textContent = falha.message || 'Não foi possível carregar o painel.';
+      }
+    });
+  </script>
+</body>
+</html>
