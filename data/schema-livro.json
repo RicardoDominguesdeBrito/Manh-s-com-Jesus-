@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schema-livro.json",
+  "title": "Exemplar do Livro Solidário",
+  "type": "object",
+  "required": [
+    "id",
+    "status",
+    "leitoresRegistrados",
+    "valorDoacoesRegistrado",
+    "cidades",
+    "historico"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]{4,}$",
+      "description": "Identificador público e único do exemplar."
+    },
+    "status": {
+      "type": "string",
+      "description": "Estado atual do exemplar, por exemplo: em circulação."
+    },
+    "leitoresRegistrados": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "valorDoacoesRegistrado": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Valor consolidado apenas quando houver mecanismo seguro de validação."
+    },
+    "cidades": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Somente cidades informadas voluntariamente pelos leitores."
+    },
+    "historico": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "data": { "type": "string" },
+          "cidade": { "type": "string" },
+          "descricao": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
