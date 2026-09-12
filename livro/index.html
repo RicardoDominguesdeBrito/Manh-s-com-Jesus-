@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Página de um exemplar do projeto Livro Solidário.">
+  <title>Livro Solidário — Exemplar</title>
+  <link rel="stylesheet" href="../assets/css/base.css">
+</head>
+<body>
+  <main class="page-shell" id="pagina-livro" aria-live="polite">
+    <section class="hero card">
+      <p class="eyebrow">Livro Solidário</p>
+      <h1>Você encontrou um livro solidário.</h1>
+      <p class="lead" id="exemplar-titulo">Carregando exemplar...</p>
+      <p>Leia. Faça parte da corrente. Depois passe este livro adiante.</p>
+    </section>
+
+    <section class="card status-grid" aria-label="Informações do exemplar">
+      <div>
+        <span class="label">Status</span>
+        <strong id="status-livro">—</strong>
+      </div>
+      <div>
+        <span class="label">Leitores registrados</span>
+        <strong id="leitores-livro">—</strong>
+      </div>
+      <div>
+        <span class="label">Impacto registrado</span>
+        <strong id="doacoes-livro">—</strong>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>A história deste exemplar</h2>
+      <p id="trajetoria-vazia">A trajetória deste livro começará a ser construída quando o sistema de registro estiver disponível.</p>
+      <ul id="historico-livro" class="timeline" hidden></ul>
+    </section>
+
+    <section class="card">
+      <h2>Cidades por onde passou</h2>
+      <p id="cidades-livro">Nenhuma cidade registrada ainda.</p>
+      <p class="note">No futuro, a cidade poderá ser informada voluntariamente pelo leitor. Não haverá geolocalização automática.</p>
+    </section>
+
+    <section class="card">
+      <h2>Faça parte da corrente</h2>
+      <div class="actions">
+        <button class="button" type="button" disabled>Quero contribuir — em breve</button>
+        <button class="button button-secondary" type="button" disabled>Recebi este livro — em breve</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Passe este livro adiante</h2>
+      <p>Depois da leitura, entregue este exemplar a outra pessoa. O mesmo NFC continuará acompanhando a jornada do livro.</p>
+    </section>
+
+    <p class="error-message" id="erro-livro" role="alert" hidden></p>
+  </main>
+
+  <script src="../assets/js/livro.js" defer></script>
+</body>
+</html>
