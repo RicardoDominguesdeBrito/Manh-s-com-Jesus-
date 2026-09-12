@@ -1,6 +1,7 @@
 async function carregarLivro() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
+  const modoAdmin = params.get('admin') === '1';
 
   const titulo = document.getElementById('exemplar-titulo');
   const status = document.getElementById('status-livro');
@@ -34,7 +35,8 @@ async function carregarLivro() {
     document.title = `Manhãs com Jesus — Exemplar ${livro.id}`;
     titulo.textContent = `Exemplar nº ${livro.id}`;
     status.textContent = livro.status;
-    leitores.textContent = String(livro.leitoresRegistrados);
+
+    atualizarContador(livro.id, leitores, modoAdmin);
 
     if (Array.isArray(livro.cidades) && livro.cidades.length > 0) {
       cidades.textContent = livro.cidades.join(' • ');
@@ -52,6 +54,25 @@ async function carregarLivro() {
   } catch (falha) {
     erro.hidden = false;
     erro.textContent = falha.message || 'Ocorreu um erro ao carregar este exemplar.';
+  }
+}
+
+async function atualizarContador(id, elemento, modoAdmin) {
+  if (!elemento) return;
+  elemento.textContent = '…';
+
+  try {
+    if (!window.ContadorManhasComJesus) {
+      throw new Error('Serviço de contagem não carregado.');
+    }
+
+    const total = await window.ContadorManhasComJesus.registrarAcesso(id, {
+      somenteLeitura: modoAdmin
+    });
+
+    elemento.textContent = String(total);
+  } catch (falha) {
+    elemento.textContent = 'indisponível';
   }
 }
 
