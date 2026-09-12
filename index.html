@@ -3,36 +3,106 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Projeto de livros solidários com NFC.">
-  <title>Livro Solidário</title>
+  <meta name="theme-color" content="#0b0d12">
+  <meta name="description" content="Manhãs com Jesus — um livro em circulação, uma corrente de solidariedade.">
+  <title>Manhãs com Jesus — Corrente do Bem</title>
   <link rel="stylesheet" href="assets/css/base.css">
 </head>
 <body>
-  <main class="page-shell">
-    <section class="hero card" aria-labelledby="titulo-principal">
-      <p class="eyebrow">Projeto em construção</p>
-      <h1 id="titulo-principal">Um livro pode passar por muitas mãos.</h1>
-      <p class="lead">E cada leitor pode fazer parte de uma corrente de solidariedade.</p>
-      <p>Esta página é uma estrutura provisória. A identidade visual, o nome público da campanha e os recursos de participação serão definidos na próxima etapa.</p>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Manhãs com Jesus — início">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span>Manhãs com Jesus</span>
+    </a>
+    <a class="header-link" href="livro/?id=0001">Exemplar 0001</a>
+  </header>
+
+  <main>
+    <section class="hero-home" aria-labelledby="titulo-principal">
+      <div class="hero-copy">
+        <p class="eyebrow eyebrow-light">Corrente do Bem</p>
+        <h1 id="titulo-principal">Uma leitura que continua depois da última página.</h1>
+        <p class="hero-lead">Este livro nasceu para acompanhar dias de dor, espera e recomeço com Deus. Agora, alguns exemplares também podem seguir viagem de mão em mão e carregar uma corrente de solidariedade.</p>
+        <div class="hero-actions">
+          <a class="button button-gold" href="#corrente">Conheça a corrente</a>
+          <a class="button button-ghost" href="livro/?id=0001">Ver exemplar 0001</a>
+        </div>
+      </div>
+
+      <div class="book-stage" aria-label="Representação visual da capa do livro Manhãs com Jesus">
+        <div class="book-cover">
+          <div class="cover-copy">
+            <span class="cover-title-small">MANHÃS</span>
+            <span class="cover-title-with">COM</span>
+            <span class="cover-title-large">JESUS</span>
+            <span class="cover-rule" aria-hidden="true"></span>
+            <span class="cover-subtitle">180 reflexões para quem atravessa<br>dor, espera e recomeço com Deus</span>
+          </div>
+          <div class="sunset" aria-hidden="true">
+            <span class="sun"></span>
+            <span class="road"></span>
+          </div>
+          <span class="cover-author">RICARDO BRITO</span>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Como a ideia funciona</h2>
-      <ol class="steps">
-        <li>A pessoa recebe um exemplar.</li>
-        <li>Aproxima o celular da etiqueta NFC.</li>
-        <li>Conhece a história daquele livro e da campanha.</li>
-        <li>Lê e, se desejar, participa da corrente solidária.</li>
-        <li>Passa o livro para outra pessoa.</li>
-      </ol>
+    <section class="intro-section" id="corrente">
+      <div class="section-kicker">O propósito</div>
+      <div class="intro-grid">
+        <h2>Um exemplar.<br>Muitas histórias.</h2>
+        <div class="intro-copy">
+          <p>O adesivo NFC transforma cada livro em um ponto de encontro. Ao aproximar o celular, o leitor acessa a página daquele exemplar, conhece a campanha e acompanha o caminho que o livro percorre.</p>
+          <p>A proposta é simples: <strong>ler, fazer o bem e passar adiante.</strong> Quando a contribuição estiver habilitada, ela poderá apoiar a campanha destinada a pacientes em tratamento de câncer.</p>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Exemplar de demonstração</h2>
-      <p>O projeto já está preparado para identificar livros individualmente sem criar uma página separada para cada exemplar.</p>
-      <a class="button" href="livro/?id=0001">Abrir exemplar 0001</a>
+    <section class="steps-section" aria-labelledby="como-funciona">
+      <div class="section-heading">
+        <p class="eyebrow">Como funciona</p>
+        <h2 id="como-funciona">Uma corrente sem complicação.</h2>
+      </div>
+
+      <div class="steps-grid">
+        <article class="step-card">
+          <span class="step-number">01</span>
+          <h3>Leia</h3>
+          <p>Receba o livro, viva a leitura no seu tempo e deixe a mensagem fazer parte da sua manhã.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">02</span>
+          <h3>Aproxime</h3>
+          <p>Encoste o celular no NFC para conhecer a história do exemplar e, futuramente, participar da campanha.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">03</span>
+          <h3>Passe adiante</h3>
+          <p>Depois da leitura, entregue o mesmo exemplar a outra pessoa. O NFC continua com o livro e a jornada continua.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="manifesto-section">
+      <div class="manifesto-symbol" aria-hidden="true">✦</div>
+      <blockquote>“Um livro pode passar por muitas mãos. E cada leitor pode deixar algo de bom pelo caminho.”</blockquote>
+      <p>Uma leitura que circula. Uma corrente que cresce.</p>
+    </section>
+
+    <section class="demo-section">
+      <div>
+        <p class="eyebrow">Primeiro exemplar</p>
+        <h2>Acompanhe o início da jornada.</h2>
+        <p>O sistema já reconhece cada livro por um número único. O exemplar 0001 está pronto para receber a identidade visual desta corrente.</p>
+      </div>
+      <a class="button button-dark" href="livro/?id=0001">Abrir exemplar 0001 <span aria-hidden="true">→</span></a>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <span>MANHÃS COM JESUS</span>
+    <span>Ricardo Brito</span>
+  </footer>
 
   <script src="assets/js/main.js" defer></script>
 </body>
