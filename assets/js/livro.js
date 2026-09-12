@@ -1,0 +1,68 @@
+async function carregarLivro() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+
+  const titulo = document.getElementById('exemplar-titulo');
+  const status = document.getElementById('status-livro');
+  const leitores = document.getElementById('leitores-livro');
+  const doacoes = document.getElementById('doacoes-livro');
+  const cidades = document.getElementById('cidades-livro');
+  const historicoLista = document.getElementById('historico-livro');
+  const historicoVazio = document.getElementById('trajetoria-vazia');
+  const erro = document.getElementById('erro-livro');
+
+  if (!id) {
+    titulo.textContent = 'Exemplar não informado';
+    erro.hidden = false;
+    erro.textContent = 'Use uma URL com o identificador do livro, por exemplo: ?id=0001';
+    return;
+  }
+
+  try {
+    const resposta = await fetch('../data/livros.json', { cache: 'no-store' });
+    if (!resposta.ok) throw new Error('Não foi possível carregar os dados dos exemplares.');
+
+    const dados = await resposta.json();
+    const livro = dados.livros.find((item) => item.id === id);
+
+    if (!livro) {
+      titulo.textContent = `Exemplar nº ${id}`;
+      erro.hidden = false;
+      erro.textContent = 'Este exemplar ainda não está cadastrado.';
+      return;
+    }
+
+    document.title = `Livro Solidário — Exemplar ${livro.id}`;
+    titulo.textContent = `Exemplar nº ${livro.id}`;
+    status.textContent = livro.status;
+    leitores.textContent = String(livro.leitoresRegistrados);
+    doacoes.textContent = formatarValor(livro.valorDoacoesRegistrado);
+
+    if (Array.isArray(livro.cidades) && livro.cidades.length > 0) {
+      cidades.textContent = livro.cidades.join(' • ');
+    }
+
+    if (Array.isArray(livro.historico) && livro.historico.length > 0) {
+      historicoVazio.hidden = true;
+      historicoLista.hidden = false;
+      livro.historico.forEach((evento) => {
+        const item = document.createElement('li');
+        item.textContent = evento.descricao || 'Registro de circulação';
+        historicoLista.appendChild(item);
+      });
+    }
+  } catch (falha) {
+    erro.hidden = false;
+    erro.textContent = falha.message || 'Ocorreu um erro ao carregar este exemplar.';
+  }
+}
+
+function formatarValor(valor) {
+  const numero = Number(valor || 0);
+  return numero.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  });
+}
+
+carregarLivro();
