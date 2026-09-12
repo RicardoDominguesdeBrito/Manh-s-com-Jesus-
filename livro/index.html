@@ -3,73 +3,113 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#0b0d12">
+  <meta name="theme-color" content="#090b10">
   <meta name="description" content="Acompanhe a jornada de um exemplar de Manhãs com Jesus na Corrente do Bem.">
   <title>Manhãs com Jesus — Exemplar</title>
   <link rel="stylesheet" href="../assets/css/base.css">
 </head>
 <body class="exemplar-body">
+  <a class="skip-link" href="#pagina-livro">Ir para o conteúdo</a>
   <header class="exemplar-top">
     <a class="back-link" href="../">← Manhãs com Jesus</a>
-    <span class="eyebrow" style="margin:0">Corrente do Bem</span>
+    <span class="eyebrow eyebrow-light">Corrente do Bem</span>
   </header>
 
   <main class="page-shell" id="pagina-livro" aria-live="polite">
-    <section class="exemplar-hero">
-      <p class="eyebrow">Este livro está em circulação</p>
-      <h1>Você encontrou um livro que continua viajando.</h1>
-      <p class="lead" id="exemplar-titulo">Carregando exemplar...</p>
-      <p>Leia. Faça parte da corrente. Depois passe este livro adiante.</p>
+    <section class="exemplar-hero" aria-labelledby="exemplar-heading">
+      <p class="eyebrow eyebrow-light">Manhãs com Jesus</p>
+      <h1 id="exemplar-heading">Este livro chegou até você para continuar uma história.</h1>
+      <p class="exemplar-id" id="exemplar-titulo">Carregando exemplar...</p>
+      <p class="free-message">Você não precisa pagar por este livro.</p>
+      <p class="exemplar-instruction">Leia no seu tempo. Se quiser, participe da corrente solidária. Depois, passe este exemplar adiante.</p>
+      <div class="hero-actions exemplar-actions">
+        <button class="button button-gold" type="button" data-open-pix>Quero contribuir</button>
+        <a class="button button-ghost" href="#entender">Entender a corrente</a>
+      </div>
     </section>
 
-    <section class="status-grid" aria-label="Informações do exemplar">
+    <section class="exemplar-story" id="entender" aria-labelledby="entender-titulo">
       <div>
-        <span class="label">Status</span>
-        <strong id="status-livro">—</strong>
+        <p class="eyebrow">Por que ele chegou até você</p>
+        <h2 id="entender-titulo">Este exemplar foi doado para circular.</h2>
       </div>
+      <div class="story-copy">
+        <p>Alguns exemplares de <em>Manhãs com Jesus</em> são comprados com recursos próprios por Ricardo Brito e entregues gratuitamente para que a leitura possa alcançar mais pessoas.</p>
+        <p><strong>Receber este livro não cria nenhuma obrigação de contribuir.</strong> Se quiser ajudar, a contribuição financeira é espontânea e independente do recebimento do exemplar.</p>
+        <p>Todo valor arrecadado por meio desta campanha é destinado ao apoio de pacientes em tratamento oncológico que enfrentam dificuldades financeiras.</p>
+        <p class="pass-forward">Depois de ler, passe adiante.</p>
+      </div>
+    </section>
+
+    <section class="status-section" aria-labelledby="status-titulo">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">A jornada deste exemplar</p>
+        <h2 id="status-titulo">Um livro, muitos caminhos.</h2>
+      </div>
+      <div class="status-grid" aria-label="Informações do exemplar">
+        <div><span class="label">Status</span><strong id="status-livro">—</strong></div>
+        <div><span class="label">Leitores registrados</span><strong id="leitores-livro">—</strong></div>
+        <div><span class="label">Impacto registrado</span><strong id="doacoes-livro">—</strong></div>
+      </div>
+    </section>
+
+    <section class="journey-grid">
+      <article class="plain-section">
+        <p class="eyebrow">Trajetória</p>
+        <h2>A história deste exemplar</h2>
+        <p id="trajetoria-vazia">A trajetória deste livro começará a ser construída quando o sistema de registro estiver disponível.</p>
+        <ul id="historico-livro" class="timeline" hidden></ul>
+      </article>
+      <article class="plain-section">
+        <p class="eyebrow">Por onde passou</p>
+        <h2>Cidades na caminhada</h2>
+        <p id="cidades-livro">Nenhuma cidade registrada ainda.</p>
+        <p class="note">Quando o registro estiver ativo, a cidade poderá ser informada voluntariamente. Não haverá geolocalização automática.</p>
+      </article>
+    </section>
+
+    <section class="solidarity-section solidarity-inline" aria-labelledby="ajudar-titulo">
       <div>
-        <span class="label">Leitores registrados</span>
-        <strong id="leitores-livro">—</strong>
+        <p class="eyebrow eyebrow-light">Se quiser ajudar</p>
+        <h2 id="ajudar-titulo">A contribuição é uma escolha, nunca uma condição.</h2>
+        <p>Ela não paga o livro e não interfere na sua circulação.</p>
       </div>
-      <div>
-        <span class="label">Impacto registrado</span>
-        <strong id="doacoes-livro">—</strong>
-      </div>
+      <button class="button button-gold" type="button" data-open-pix>Quero contribuir</button>
     </section>
 
-    <section class="card">
-      <p class="eyebrow">A jornada</p>
-      <h2>A história deste exemplar</h2>
-      <p id="trajetoria-vazia">A trajetória deste livro começará a ser construída quando o sistema de registro estiver disponível.</p>
-      <ul id="historico-livro" class="timeline" hidden></ul>
+    <section class="transparency-section">
+      <p class="eyebrow">Transparência da corrente</p>
+      <h2>O livro é doado. A contribuição é opcional.</h2>
+      <p>O objetivo é permitir que a mesma leitura alcance várias pessoas enquanto a corrente também pode gerar recursos para apoiar pacientes em tratamento oncológico.</p>
     </section>
 
-    <section class="card">
-      <p class="eyebrow">Por onde passou</p>
-      <h2>Cidades na caminhada</h2>
-      <p id="cidades-livro">Nenhuma cidade registrada ainda.</p>
-      <p class="note">Quando o registro estiver ativo, a cidade poderá ser informada voluntariamente pelo leitor. Não haverá geolocalização automática.</p>
-    </section>
-
-    <section class="card">
-      <p class="eyebrow">Solidariedade</p>
-      <h2>Faça parte da corrente</h2>
-      <p>A proposta desta edição em circulação é unir leitura e solidariedade. Os recursos de contribuição e registro serão ativados na próxima etapa do projeto.</p>
-      <div class="actions">
-        <button class="button button-dark" type="button" disabled>Quero contribuir — em breve</button>
-        <button class="button button-secondary" type="button" disabled>Recebi este livro — em breve</button>
-      </div>
-    </section>
-
-    <section class="card">
+    <section class="pass-section">
       <p class="eyebrow">O próximo capítulo</p>
-      <h2>Passe este livro adiante</h2>
-      <p>Depois da leitura, entregue este exemplar a alguém que possa se beneficiar dessa mensagem. O mesmo NFC permanece com o livro e acompanha a próxima etapa da jornada.</p>
+      <h2>Depois de ler, passe este livro adiante.</h2>
+      <p>Entregue este exemplar a alguém que possa se beneficiar da mensagem. O mesmo NFC permanece com o livro e acompanha a próxima etapa da jornada.</p>
+      <button class="button button-secondary" type="button" disabled>Registrar que recebi — em breve</button>
     </section>
 
     <p class="error-message" id="erro-livro" role="alert" hidden></p>
   </main>
 
+  <dialog class="pix-dialog" id="pix-dialog" aria-labelledby="pix-title">
+    <form method="dialog" class="pix-dialog-inner">
+      <button class="dialog-close" type="submit" aria-label="Fechar janela de contribuição">×</button>
+      <p class="eyebrow">Contribuição voluntária</p>
+      <h2 id="pix-title">Se quiser participar também desta forma.</h2>
+      <p class="pix-intro">A contribuição é voluntária. O recebimento e a circulação deste livro não dependem de qualquer pagamento.</p>
+      <div class="pix-key-box">
+        <span>Chave Pix</span>
+        <strong id="pix-key">ricardo d-brito@gmail.com</strong>
+        <button class="button button-dark" type="button" data-copy-pix data-pix-key="ricardo d-brito@gmail.com">Copiar chave Pix</button>
+        <span class="copy-status" data-copy-status role="status" aria-live="polite"></span>
+      </div>
+      <p class="pix-note">Todo valor arrecadado por esta campanha é destinado ao apoio de pacientes em tratamento oncológico que enfrentam dificuldades financeiras.</p>
+    </form>
+  </dialog>
+
+  <script src="../assets/js/main.js" defer></script>
   <script src="../assets/js/livro.js" defer></script>
 </body>
 </html>
