@@ -1,6 +1,6 @@
 (function () {
   const API_BASE = 'https://countapi.mileshilliard.com/api/v1';
-  const PREFIXO = 'mcj-rdb-2026';
+  const PREFIXO = 'mcj-rdb-2026-reset-20261005';
 
   function chaveRemota(id) {
     return `${PREFIXO}-exemplar-${id}-acessos`;
