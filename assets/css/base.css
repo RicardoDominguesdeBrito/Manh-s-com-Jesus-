@@ -135,6 +135,8 @@ button:disabled { cursor: not-allowed; }
 .pass-section h2 { margin:0 0 16px; max-width:760px; font-size:clamp(2.6rem,5vw,4.6rem); line-height:1; }
 .pass-section > p:not(.eyebrow) { max-width:720px; color:#555650; line-height:1.75; }
 .pass-section .button { margin-top:18px; }
+.book-links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; align-items:stretch; }
+.book-links .button { width:100%; min-height:64px; margin-top:0; padding:14px 18px; text-align:center; line-height:1.25; }
 .error-message { margin:36px 0 0; padding:14px 16px; border:1px solid #bd7777; border-radius:12px; background:#fff1f1; color:#7b2929; }
 
 /* Painel Pix */
@@ -196,5 +198,6 @@ button:disabled { cursor: not-allowed; }
   .solidarity-inline { width:100%; margin:0; padding:58px 22px; border-radius:18px; }
   .exemplar-body .transparency-section { width:calc(100% - 16px); }
   .pass-section { margin:0 8px; padding-top:70px; }
+  .book-links { grid-template-columns:1fr; }
   .pix-dialog-inner { padding:34px 22px 26px; }
 }
